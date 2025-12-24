@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagrati Limba | Biomedical Engineer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal
+                            600: '#0d9488',
+                            700: '#0f766e',
+                        },
+                        slate: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(20, 184, 166, 0.7)' },
+                            '70%': { boxShadow: '0 0 0 10px rgba(20, 184, 166, 0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(20, 184, 166, 0.1);
+        }
+        
+        /* Circuit Board Background Pattern */
+        .circuit-bg {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2314b8a6' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="bg-medical-500 p-2 rounded-full text-white">
+                        <i data-lucide="activity" class="h-6 w-6"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Jagrati <span class="text-medical-600">Limba</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-slate-600 hover:text-medical-600 font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-slate-600 hover:text-medical-600 font-medium transition-colors">About</a>
+                    <a href="#skills" class="text-slate-600 hover:text-medical-600 font-medium transition-colors">Skills</a>
+                    <a href="#education" class="text-slate-600 hover:text-medical-600 font-medium transition-colors">Education</a>
+                    <a href="#projects" class="text-slate-600 hover:text-medical-600 font-medium transition-colors">Projects</a>
+                    <a href="#contact" class="px-5 py-2.5 bg-medical-600 text-white font-medium rounded-full shadow-lg hover:bg-medical-700 transition-all hover:shadow-medical-500/30">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-medical-600 focus:outline-none">
+                        <i data-lucide="menu" class="h-7 w-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-medical-600 hover:bg-medical-50">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-medical-600 hover:bg-medical-50">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-medical-600 hover:bg-medical-50">Skills</a>
+                <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-medical-600 hover:bg-medical-50">Education</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-medical-600 hover:bg-medical-50">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-medical-600 font-bold bg-medical-50">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden circuit-bg">
+        <!-- Abstract Background Element -->
+        <div class="absolute right-0 top-20 opacity-20 hidden lg:block animate-float pointer-events-none">
+             <!-- SVG DNA Representation -->
+             <svg width="600" height="600" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0D9488" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.3C93.5,8.6,82.2,21.5,70.9,32.2C59.6,42.9,48.3,51.4,36.4,58.3C24.5,65.2,12.1,70.5,-1.3,72.7C-14.7,74.9,-29.3,74,-42.6,68.1C-55.9,62.2,-67.9,51.3,-75.6,38.3C-83.3,25.3,-86.7,10.2,-85.2,-4.3C-83.7,-18.8,-77.3,-32.7,-67.4,-44C-57.5,-55.3,-44.1,-64,-30.5,-71.6C-16.9,-79.2,-3.1,-85.7,9.6,-83.4L22.3,-81.1Z" transform="translate(100 100)" />
+             </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:w-2/3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-medical-50 border border-medical-100 text-medical-700 text-sm font-semibold mb-6 reveal">
+                    <i data-lucide="cpu" class="h-4 w-4"></i>
+                    <span>Biomedical Engineering Student</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6 reveal">
+                    Bridging the Gap Between <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-medical-600 to-teal-400">Engineering & Healthcare</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl reveal leading-relaxed">
+                    I am Jagrati, a Biomedical Engineer skilled in C Programming, AutoCAD, and Design. Passionate about innovating medical solutions and improving patient care through technology.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 reveal">
+                    <a href="#projects" class="px-8 py-4 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                        View Projects <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-medical-500 text-white rounded-lg font-semibold animate-pulse-glow transition-all flex items-center justify-center gap-2 hover:bg-medical-600">
+                        Contact Me <i data-lucide="mail" class="h-4 w-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <!-- Text Content -->
+                <div class="md:w-1/2 reveal">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="stethoscope" class="text-medical-600 h-6 w-6"></i>
+                        <h2 class="text-3xl font-bold text-slate-900">About Me</h2>
+                    </div>
+                    <div class="h-1 w-20 bg-medical-500 mb-6 rounded"></div>
+                    
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        I am an enthusiastic and optimistic <strong>B.Tech student at Jaipur National University</strong>. With a strong foundation in Biomedical Engineering and technical skills in C Programming and AutoCAD, I aim to solve complex healthcare problems through technological innovation.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Beyond the technical scope, I am a disciplined problem-solver with a background in <strong>NCC</strong> and project management, which has shaped my leadership abilities.
+                    </p>
+
+                    <div class="bg-medical-50 p-4 rounded-xl border border-medical-100 mt-4">
+                        <h3 class="font-semibold text-medical-700 mb-2 flex items-center gap-2">
+                            <i data-lucide="music" class="h-4 w-4"></i> Creative Side
+                        </h3>
+                        <p class="text-sm text-slate-600">
+                            When not designing medical circuits or studying anatomy, I enjoy playing the <strong>Sitar</strong> and exploring instrumental music, which helps me maintain creativity and focus.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stats/Visual -->
+                <div class="md:w-1/2 grid grid-cols-2 gap-4 reveal">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition-shadow">
+                        <i data-lucide="graduation-cap" class="h-10 w-10 text-medical-600 mx-auto mb-3"></i>
+                        <h4 class="font-bold text-2xl text-slate-900">2028</h4>
+                        <p class="text-sm text-slate-500">Graduation Year</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition-shadow">
+                        <i data-lucide="star" class="h-10 w-10 text-medical-600 mx-auto mb-3"></i>
+                        <h4 class="font-bold text-2xl text-slate-900">7.9</h4>
+                        <p class="text-sm text-slate-500">Current CGPA</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition-shadow">
+                        <i data-lucide="award" class="h-10 w-10 text-medical-600 mx-auto mb-3"></i>
+                        <h4 class="font-bold text-2xl text-slate-900">NCC</h4>
+                        <p class="text-sm text-slate-500">Certified</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-md transition-shadow">
+                        <i data-lucide="lightbulb" class="h-10 w-10 text-medical-600 mx-auto mb-3"></i>
+                        <h4 class="font-bold text-2xl text-slate-900">3+</h4>
+                        <p class="text-sm text-slate-500">Major Projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <i data-lucide="stethoscope" class="text-medical-600 h-6 w-6"></i>
+                    <h2 class="text-3xl font-bold text-slate-900">Technical Proficiency</h2>
+                </div>
+                <p class="text-slate-500">My toolset for engineering and design</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border-t-4 border-medical-500 reveal">
+                    <div class="bg-medical-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-medical-600">
+                        <i data-lucide="code-2" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Core Technical</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> C Programming</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> Biomedical Instrumentation</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> AutoCAD (Drafting)</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border-t-4 border-slate-600 reveal">
+                    <div class="bg-slate-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-slate-600">
+                        <i data-lucide="pen-tool" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Design & Tools</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> Canva (Expert)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> Microsoft Excel (Analysis)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> Microsoft Word</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border-t-4 border-medical-500 reveal">
+                    <div class="bg-medical-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-medical-600">
+                        <i data-lucide="users" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Soft Skills</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> Project Management</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> Effective Leadership</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-medical-500"></i> Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certs Split -->
+    <section id="education" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16">
+                
+                <!-- Timeline -->
+                <div class="lg:w-2/3 reveal">
+                    <div class="flex items-center gap-2 mb-8">
+                        <i data-lucide="stethoscope" class="text-medical-600 h-6 w-6"></i>
+                        <h2 class="text-3xl font-bold text-slate-900">Education Timeline</h2>
+                    </div>
+                    
+                    <div class="relative border-l-2 border-slate-200 ml-3 space-y-12">
+                        <!-- Item 1 -->
+                        <div class="relative pl-8">
+                            <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-medical-500 border-2 border-white shadow"></div>
+                            <span class="text-sm font-bold text-medical-600 tracking-wider">2024 - 2028 (Present)</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-1">B.Tech in Biomedical Engineering</h3>
+                            <p class="text-slate-500 italic">Jaipur National University</p>
+                            <p class="text-slate-600 mt-2">Current CGPA: <span class="font-semibold text-slate-800">7.9</span></p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="relative pl-8">
+                            <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <span class="text-sm font-bold text-slate-500 tracking-wider">2024</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-1">Class 12th (Senior Secondary)</h3>
+                            <p class="text-slate-500 italic">Diamond Academy Sr. Sec. School</p>
+                            <p class="text-slate-600 mt-2">Percentage: <span class="font-semibold text-slate-800">71.4%</span></p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="relative pl-8">
+                            <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <span class="text-sm font-bold text-slate-500 tracking-wider">2022</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-1">Class 10th (Secondary)</h3>
+                            <p class="text-slate-500 italic">Diamond Academy Sr. Sec. School</p>
+                            <p class="text-slate-600 mt-2">Percentage: <span class="font-semibold text-slate-800">66%</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="lg:w-1/3 reveal">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i data-lucide="badge-check" class="text-medical-600"></i> Certifications
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 flex items-start gap-3">
+                            <i data-lucide="shield" class="h-5 w-5 text-medical-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">NCC Certificate Holder</h4>
+                                <p class="text-xs text-slate-500">Discipline & National Service</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 flex items-start gap-3">
+                            <i data-lucide="file-check" class="h-5 w-5 text-medical-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Project Management</h4>
+                                <p class="text-xs text-slate-500">Professional Certification</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 flex items-start gap-3">
+                            <i data-lucide="users" class="h-5 w-5 text-medical-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Effective Leadership</h4>
+                                <p class="text-xs text-slate-500">Team Management Skills</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <i data-lucide="stethoscope" class="text-medical-600 h-6 w-6"></i>
+                    <h2 class="text-3xl font-bold text-slate-900">Featured Projects</h2>
+                </div>
+                <p class="text-slate-500">Applying engineering principles to real-world scenarios</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group reveal">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-medical-600 to-teal-400 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                        <i data-lucide="box" class="relative text-white h-16 w-16 opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Medical Device Modeling</h3>
+                        <p class="text-slate-600 mb-4 text-sm">Designed 3D concepts for ergonomic prosthetic components using industry-standard CAD tools.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-teal-50 text-teal-700 text-xs font-medium rounded-full border border-teal-100">AutoCAD</span>
+                            <span class="px-2 py-1 bg-teal-50 text-teal-700 text-xs font-medium rounded-full border border-teal-100">Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group reveal">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-slate-700 to-slate-500 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                        <i data-lucide="heart-pulse" class="relative text-white h-16 w-16 opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Biomed Awareness Campaign</h3>
+                        <p class="text-slate-600 mb-4 text-sm">Led a university design initiative creating visual aids for health awareness utilizing creative tools.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-full border border-slate-200">Canva</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-full border border-slate-200">Leadership</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group reveal">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-medical-600 to-teal-400 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                        <i data-lucide="bar-chart-2" class="relative text-white h-16 w-16 opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Health Data Analysis</h3>
+                        <p class="text-slate-600 mb-4 text-sm">Utilized Excel and C Programming to organize, clean, and analyze patient data sets for academic research.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-teal-50 text-teal-700 text-xs font-medium rounded-full border border-teal-100">C Language</span>
+                            <span class="px-2 py-1 bg-teal-50 text-teal-700 text-xs font-medium rounded-full border border-teal-100">Excel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Info -->
+                <div class="reveal">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i data-lucide="stethoscope" class="text-medical-600 h-6 w-6"></i>
+                        <h2 class="text-3xl font-bold text-slate-900">Get In Touch</h2>
+                    </div>
+                    <p class="text-slate-600 mb-8">
+                        I am currently open to internships and collaborative projects in the biomedical field. Feel free to reach out!
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-medical-50 p-3 rounded-full text-medical-600">
+                                <i data-lucide="map-pin" class="h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Location</h4>
+                                <p class="text-slate-600">Jagatpura, Jaipur, Rajasthan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-medical-50 p-3 rounded-full text-medical-600">
+                                <i data-lucide="mail" class="h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Email</h4>
+                                <a href="mailto:jagratilimba@gmail.com" class="text-slate-600 hover:text-medical-600 transition-colors">jagratilimba@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-medical-50 p-3 rounded-full text-medical-600">
+                                <i data-lucide="phone" class="h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Phone</h4>
+                                <a href="tel:8619340812" class="text-slate-600 hover:text-medical-600 transition-colors">+91 8619340812</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-slate-50 p-8 rounded-2xl shadow-sm reveal">
+                    <form onsubmit="event.preventDefault(); alert('Message sent! I will get back to you shortly.');" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-medical-500 focus:border-transparent outline-none transition-all" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-medical-500 focus:border-transparent outline-none transition-all" placeholder="you@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-medical-500 focus:border-transparent outline-none transition-all" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-medical-600 text-white font-bold py-3 rounded-lg hover:bg-medical-700 transition-colors animate-pulse-glow shadow-lg shadow-medical-500/30">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-2 mb-4">
+                 <i data-lucide="activity" class="text-medical-500 h-5 w-5"></i>
+                 <span class="text-white font-bold">Jagrati Limba</span>
+            </div>
+            <p>&copy; 2026 Jagrati. All rights reserved.</p>
+            <p class="text-sm mt-2">Designed with <i data-lucide="heart" class="inline h-3 w-3 text-red-500"></i> in Jaipur</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Blur Effect on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-sm');
+            }
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+    </script>
+</body>
+</html>
