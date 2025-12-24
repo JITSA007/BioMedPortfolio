@@ -1,64 +1,67 @@
-Jagrati Limba | Biomedical Engineering Portfolio
+<div align="center">
+<img src="https://www.google.com/search?q=https://capsule-render.vercel.app/api%3Ftype%3Dwaving%26color%3D0d9488%26height%3D220%26section%3Dheader%26text%3DJagrati%2520Limba%26fontSize%3D80%26animation%3DfadeIn%26fontAlignY%3D35%26desc%3DBiomedical%2520Engineer%2520%257C%2520Innovator%2520%257C%2520Designer%26descAlignY%3D55%26descAlign%3D50" alt="Jagrati Limba Banner" />
 
-A professional, responsive personal portfolio website designed for Jagrati Limba, a Biomedical Engineering student at Jaipur National University. This site showcases technical skills, academic timeline, and projects bridging the gap between engineering and healthcare.
+🩺 Biomedical Engineering Portfolio
 
-🔗 Live Demo
+Bridging the gap between Engineering & Healthcare through innovation and design.
 
-<!-- Replace 'username' and 'repo-name' with your actual GitHub username and repository name after deploying -->
+</div>
 
-View Live Site
+👩‍💻 About Me
 
-✨ Features
+I am Jagrati Limba, a passionate Biomedical Engineering student at Jaipur National University. My work focuses on designing medical solutions, analyzing health data, and creating ergonomic prosthetic components. I combine technical precision with creative design to solve complex healthcare problems.
 
-Modern Biomedical Theme: A clean, sterile, yet inviting design using Teal/Cyan and Slate Gray to reflect medical technology.
+🛠️ Tech Stack & Skills
 
-Fully Responsive: Optimized for desktops, tablets, and mobile devices.
+Engineering & Design
 
-Interactive Elements: Includes smooth scrolling, hover effects, "pulse" animations for key actions, and a glass-morphism navbar.
+Web Development
 
-Single-File Architecture: Lightweight and easy to deploy, containing all structure, styles, and logic in one file.
+✨ Key Features
 
-Dynamic Visuals: Features medical-themed icons (Lucide) and abstract DNA/circuit background elements.
+Feature
 
-🛠️ Tech Stack
+Description
 
-HTML5: Semantic structure.
+🎨 Modern Theme
 
-Tailwind CSS (via CDN): Rapid, utility-first styling for layout and responsiveness.
+Sterile yet inviting Teal & Slate palette reflecting MedTech aesthetics.
 
-JavaScript: Handling mobile navigation, scroll animations, and interactivity.
+📱 Responsive
 
-Lucide Icons: Modern, vector-based icons for visual storytelling.
+Fully optimized layouts for Mobile, Tablet, and Desktop.
 
-Google Fonts: Typography using Inter and Roboto.
+⚡ Interactions
+
+Smooth scrolling, "Pulse" animations, and glass-morphism effects.
+
+🚀 Performance
+
+Lightweight single-file architecture using CDN libraries.
 
 📂 Project Structure
 
-This project follows a simple, single-file structure for ease of maintenance:
-
 /
-├── index.html     # Contains all HTML, CSS (Tailwind config), and JavaScript
-└── README.md      # Project documentation
+├── index.html     # 📄 The complete source code (HTML+Tailwind+JS)
+└── README.md      # 📘 This documentation file
 
 
-🚀 How to Run Locally
+🚀 Quick Start
 
-Clone the repository:
+Clone the Repo
 
 git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
 
 
-Open the file:
-Navigate to the folder and simply double-click index.html to open it in your web browser. No server or build process is required!
+Run It
+Simply open index.html in your browser. No installation required!
 
-📬 Contact
+<div align="center">
 
-Jagrati Limba
+📬 Connect with Me
 
-📍 Location: Jaipur, Rajasthan
+<br />
 
-📧 Email: jagratilimba@gmail.com
+Designed with ❤️ by Jagrati Limba | © 2026
 
-💼 LinkedIn Profile <!-- Add your LinkedIn link here -->
-
-© 2026 Jagrati Limba. All rights reserved.
+</div>
