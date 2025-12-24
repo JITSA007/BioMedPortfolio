@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://www.google.com/search?q=https://capsule-render.vercel.app/api%3Ftype%3Dwaving%26color%3D0d9488%26height%3D220%26section%3Dheader%26text%3DJagrati%2520Limba%26fontSize%3D80%26animation%3DfadeIn%26fontAlignY%3D35%26desc%3DBiomedical%2520Engineer%2520%257C%2520Innovator%2520%257C%2520Designer%26descAlignY%3D55%26descAlign%3D50" alt="Jagrati Limba Banner" />
+<h1>Jagrati Limba</h1>
 
 🩺 Biomedical Engineering Portfolio
 
